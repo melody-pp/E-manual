@@ -1,7 +1,6 @@
 <template>
   <div>
-    <AnVueComponent/>
-    this is {{date.toISOString()}}
+    <Category1/>
   </div>
 </template>
 
@@ -9,29 +8,15 @@
   import { debounce } from '../../common/utils'
   import { vuexMixin } from '../../common/mixins'
   import AnVueComponent from '../../common/components/AnVueComponent'
+  import Category1 from '../Category1/Category1'
+  import Category2 from '../Category2/category2'
 
   export default {
     name: 'Home',
     mixins: [vuexMixin],
-    components: {AnVueComponent},
-    data: () => ({
-      timer: null,
-      date: new Date
-    }),
-    methods: {
-      refreshDate () {
-        this.date = new Date
-      }
-    },
-    created () {
-      this.refreshDate = this.refreshDate.bind(this)
-    },
-    mounted () {
-      this.timer = setInterval(this.refreshDate, 100)
-    },
-    beforeDestroy () {
-      clearInterval(this.timer)
-    }
+    components: {AnVueComponent, Category1, Category2},
+    data: () => ({}),
+    methods: {}
   }
 </script>
 
