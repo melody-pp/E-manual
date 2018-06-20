@@ -13,16 +13,15 @@
 </script>
 
 <style lang="scss">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
   #app {
-    text-align: center;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  }
-
-  body, ul, li {
-    margin: 0;
-    padding: 0;
   }
 
   .clearfix {
@@ -35,7 +34,6 @@
       clear: both;
       visibility: hidden
     }
-
   }
 
   .fl {

@@ -10,16 +10,17 @@ Vue.use(Router)
 
 const router = new Router({
   routes: [
-
     {
       path: '',
       name: 'Home',
       component: Home
-    }, {
-      path: '/ctegory1',
+    },
+    {
+      path: '/category1',
       name: 'category1',
       component: Category1
-    }, {
+    },
+    {
       path: '/category2',
       name: 'category2',
       component: Category2
@@ -28,7 +29,6 @@ const router = new Router({
       name: 'details',
       component: Details
     }
-
   ]
 })
 
