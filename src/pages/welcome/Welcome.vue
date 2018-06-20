@@ -1,8 +1,8 @@
 <template>
-  <div class="welcome">
-    <img src="../../asset/coverPage/coverBG.png" class="coverBG">
-    <img src="../../asset/coverPage/title.png" class="title levelCenter">
-    <img src="../../asset/coverPage/logo.png" class="logo levelCenter">
+  <div class="welcome" @click="$router.push('/index')">
+    <img src="../../asset/welcome/coverBG.png" class="coverBG">
+    <img src="../../asset/welcome/title.png" class="title levelCenter">
+    <img src="../../asset/welcome/logo.png" class="logo levelCenter">
   </div>
 </template>
 

@@ -1,6 +1,15 @@
 <template>
   <div>
-    <router-view/>
+    <div class="slides">
+      <div>
+        <img src="">
+      </div>
+    </div>
+
+    <div class="cates">
+
+    </div>
+
   </div>
 </template>
 
@@ -10,15 +19,14 @@
   export default {
     name: 'index',
     mixins: [vuexMixin],
-    components: {SearchBar},
+    components: {},
     data: () => ({}),
     methods: {}
   }
 </script>
 
 <style scoped>
-  .searchBar {
-    width: 70%;
-    margin: 10px auto;
+  .cates {
+
   }
 </style>
