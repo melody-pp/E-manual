@@ -3,9 +3,6 @@
     <ul class="menu3">
       <li v-for="(menu,index) in menu3" :key="index">{{menu}}</li>
     </ul>
-    <ul class="productList">
-      <li v-for="(perProduct,index) in productList" :key="index">{{perProduct}}</li>
-    </ul>
   </div>
 </template>
 
@@ -15,7 +12,6 @@
     data () {
       return {
         menu3: ['夹克', '羽绒', '冲锋衣', '棒球服', '卫衣', 'T恤', 'POLO衫', '红牛战队', '非凡搭档'],
-        productList: ['夹克', '羽绒', '冲锋衣', '棒球服', '卫衣', 'T恤', 'POLO衫', '红牛战队', '非凡搭档']
       }
     }
   }
@@ -33,6 +29,6 @@
         background-color: #8BC34A;
       }
     }
-  
+
   }
 </style>
