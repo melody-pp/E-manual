@@ -13,16 +13,19 @@
 </script>
 
 <style lang="scss">
+  * {
+    margin: 0;
+    padding: 0;
+  }
+
+  ul, li {
+    list-style: none;
+  }
+
   #app {
-    text-align: center;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  }
-
-  body, ul, li {
-    margin: 0;
-    padding: 0;
   }
 
   .clearfix {
@@ -35,7 +38,6 @@
       clear: both;
       visibility: hidden
     }
-
   }
 
   .fl {
@@ -44,9 +46,5 @@
 
   .fr {
     float: right;
-  }
-
-  ul, li {
-    list-style: none;
   }
 </style>
