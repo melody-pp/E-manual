@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="{
+  <div class="cube-container" :style="{
     width: `${size}px`,
     height: `${size}px`,
   }">
@@ -101,10 +101,11 @@
 </script>
 
 <style scoped lang="scss">
-  .container {
+  .cube-container {
     margin: 5px auto;
     perspective: 800px;
     position: relative;
+    display: inline-block;
   }
 
   .animate {

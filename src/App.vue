@@ -5,6 +5,7 @@
 </template>
 
 <script>
+  import 'bulma'
   import 'normalize.css'
 
   export default {

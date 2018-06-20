@@ -1,9 +1,9 @@
 <template>
   <div class="siema">
-    <div>Hi, I'm slide 1</div>
-    <div>Hi, I'm slide 2</div>
-    <div>Hi, I'm slide 3</div>
-    <div>Hi, I'm slide 4</div>
+    <div class="slide">Hi, I'm slide 1</div>
+    <div class="slide">Hi, I'm slide 2</div>
+    <div class="slide">Hi, I'm slide 3</div>
+    <div class="slide">Hi, I'm slide 4</div>
   </div>
 </template>
 
@@ -12,9 +12,7 @@
 
   export default {
     name: 'Carousel',
-    props: {
-
-    },
+    props: {},
     mounted () {
       new Siema({
         selector: '.siema',
@@ -25,7 +23,7 @@
         draggable: true,
         multipleDrag: true,
         threshold: 20,
-        loop: false,
+        loop: true,
         rtl: false,
         onInit: () => {},
         onChange: () => {},
@@ -34,6 +32,15 @@
   }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+  .siema {
+    margin: 20px;
+  }
 
+  .slide {
+    height: 150px;
+    line-height: 100px;
+    text-align: center;
+    background: aquamarine;
+  }
 </style>
