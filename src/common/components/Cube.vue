@@ -3,11 +3,11 @@
     width: `${size}px`,
     height: `${size}px`,
   }">
-    <div class="cube" :style="{
+    <div class="cube" :class={animate} :style="{
         width: `${size}px`,
         height: `${size}px`,
-        transform: `translateZ(-${size/2}px) rotateX(${up*90}deg) rotateY(${right*90}deg)`
-      }" @click="clickCube">
+        transform: `translateZ(-${size/2}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+      }" @touchstart="touchstart" @touchmove="touchmove" @touchend="touchend">
 
       <div class="left" :style="{
         width: `${size}px`,
@@ -70,31 +70,32 @@
       text: String
     },
     data: () => ({
-      up: 0,
-      right: 0,
+      lastX: 0,
+      lastY: 0,
+      rotateX: 0,
+      rotateY: 0,
+      animate: false,
     }),
     methods: {
-      clickCube (event) {
-        const {isLeft, underL1, underL2} = this.getConditions(event)
-        if (isLeft && underL2 && !underL1) {
-          this.right--
-        } else if ((isLeft && underL1) || (!isLeft && underL2)) {
-          this.up++
-        } else if ((isLeft && !underL2) || (!isLeft && !underL1)) {
-          this.up--
-        } else {
-          this.right++
-        }
+      touchstart (event) {
+        const {clientX, clientY} = event.changedTouches[0]
+        this.lastX = clientX
+        this.lastY = clientY
+        this.animate = false
       },
-      getConditions (event) {
-        const {offsetX, offsetY} = event
+      touchmove (event) {
+        const {clientX, clientY} = event.changedTouches[0]
+        this.rotateY += clientX - this.lastX
+        this.rotateX -= clientY - this.lastY
 
-        return {
-          isLeft: 2 * offsetX < this.size,
-          underL1: offsetY < offsetX,
-          underL2: offsetX < (this.size - offsetY),
-        }
+        this.lastX = clientX
+        this.lastY = clientY
       },
+      touchend () {
+        this.animate = true
+        this.rotateX = Math.round(this.rotateX / 90) * 90
+        this.rotateY = Math.round(this.rotateY / 90) * 90
+      }
     }
   }
 </script>
@@ -106,8 +107,11 @@
     position: relative;
   }
 
+  .animate {
+    transition: all .5s;
+  }
+
   .cube {
-    transition: all 1s;
     position: relative;
     transform-style: preserve-3d;
     > div {
