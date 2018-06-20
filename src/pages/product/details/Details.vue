@@ -2,7 +2,7 @@
   <div class="details">
     <span @click="toLocation=!toLocation" class="locationIcon">定位</span>
     <div @click="toLocation=!toLocation" v-show="toLocation" class="model">
-      <img src="../../asset/location.png" class="center">
+      <img src="../../../asset/location.png" class="center">
     </div>
   </div>
 </template>

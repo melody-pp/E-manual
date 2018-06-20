@@ -85,8 +85,8 @@
       },
       touchmove (event) {
         const {clientX, clientY} = event.changedTouches[0]
-        this.rotateY += clientX - this.lastX
-        this.rotateX -= clientY - this.lastY
+        this.rotateY += (clientX - this.lastX) / 2
+        this.rotateX -= (clientY - this.lastY) / 2
 
         this.lastX = clientX
         this.lastY = clientY

@@ -1,10 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from '../pages/Home/Home'
-import Category from '../pages/category/Category'
-import Category1 from '../pages/category/Category1'
-import Category2 from '../pages/category/Category2'
-import Details from '../pages/Details/Details'
+import Index from '../pages/index/Index'
+import Welcome from '../pages/welcome/Welcome'
+import Product from '../pages/product/Product'
+import Cate2 from '../pages/product/category/Category'
+import Cate3 from '../pages/product/category/Cate2'
+import Category from '../pages/product/category/Cate3'
+import Details from '../pages/product/details/Details'
 
 Vue.use(Router)
 
@@ -12,32 +14,42 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home,
+      name: 'Welcome',
+      component: Welcome,
+    },
+    {
+      path: '/index',
+      name: 'index',
+      component: Index,
+    },
+    {
+      path: '/product',
+      name: 'product',
+      component: Product,
       children: [
         {
-          path: '/',
-          name: 'Category',
+          path: 'category',
+          name: 'category',
           component: Category,
           children: [
             {
-              path: '/',
-              name: 'Category1',
-              component: Category1
+              path: 'cate2',
+              name: 'cate2',
+              component: Cate2
             },
             {
-              path: 'category2',
-              name: 'category2',
-              component: Category2
+              path: 'cate3',
+              name: 'cate3',
+              component: Cate3
             },
-          ],
+          ]
         },
         {
           path: 'details',
           name: 'details',
           component: Details
         },
-      ]
+      ],
     },
   ]
 })

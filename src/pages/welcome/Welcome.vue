@@ -1,5 +1,5 @@
 <template>
-  <div class="coverPage">
+  <div class="welcome">
     <img src="../../asset/coverPage/coverBG.png" class="coverBG">
     <img src="../../asset/coverPage/title.png" class="title levelCenter">
     <img src="../../asset/coverPage/logo.png" class="logo levelCenter">
@@ -8,12 +8,12 @@
 
 <script>
   export default {
-    name: 'CoverPage'
+    name: 'welcome'
   }
 </script>
 
 <style scoped lang="scss">
-  .coverPage {
+  .welcome {
     position: relative;
     .coverBG {
       width: 100vw;

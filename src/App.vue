@@ -5,8 +5,7 @@
 </template>
 
 <script>
-  import 'bulma'
-  import 'normalize.css'
+  import './common/lib'
 
   export default {
     name: 'App'

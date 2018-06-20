@@ -1,20 +1,16 @@
 <template>
   <div>
-    <!--<SearchBar class="searchBar"/>-->
-    <CoverPage/>
     <router-view/>
   </div>
 </template>
 
 <script>
   import { vuexMixin } from '../../common/mixins'
-  import SearchBar from '../../common/components/SearchBar'
-  import CoverPage from '../coverPage/CoverPage'
 
   export default {
-    name: 'Home',
+    name: 'index',
     mixins: [vuexMixin],
-    components: {SearchBar, CoverPage},
+    components: {SearchBar},
     data: () => ({}),
     methods: {}
   }
