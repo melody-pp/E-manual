@@ -22,8 +22,9 @@
     .menu3 {
       li {
         float: left;
-        width: 33.33%;
-        padding: 7vw 0;
+        width: 31.33%;
+        padding: 8vw 0;
+        margin: 1vw;
       }
       li:nth-child(odd) {
         background-color: #8BC34A;
