@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Home from '../pages/Home/Home'
 import Category1 from '../pages/Category1/Category1'
 import Category2 from '../pages/Category2/Category2'
+import Details from '../pages/Details/Details'
 import SearchBar from '../common/components/SearchBar'
 
 Vue.use(Router)
@@ -23,6 +24,10 @@ const router = new Router({
       path: '/category2',
       name: 'category2',
       component: Category2
+    }, {
+      path: '/details',
+      name: 'details',
+      component: Details
     }
   ]
 })

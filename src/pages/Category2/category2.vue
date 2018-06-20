@@ -1,7 +1,7 @@
 <template>
   <div class="category2">
     <ul class="menu3">
-      <li v-for="(menu,index) in menu3" :key="index">{{menu}}</li>
+      <li @click="toDetails" v-for="(menu,index) in menu3" :key="index">{{menu}}</li>
     </ul>
   </div>
 </template>
@@ -12,6 +12,11 @@
     data () {
       return {
         menu3: ['夹克', '羽绒', '冲锋衣', '棒球服', '卫衣', 'T恤', 'POLO衫', '红牛战队', '非凡搭档'],
+      }
+    },
+    methods: {
+      toDetails () {
+        this.$router.push('/details')
       }
     }
   }
