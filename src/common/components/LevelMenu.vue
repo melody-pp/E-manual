@@ -1,12 +1,9 @@
 <template>
   <div class="levelMenu">
-    <div class="slider">
-      <div v-for="(cat,index) in cat1List" :style="{
-      background: cat.bgc,
-      top: index * 40 + 'px'}">
+    <div class="level-menu-slider">
+      <div class="cate" v-for="cat in cat1List" :style="{background: cat.bgc}">
         <img :src="cat.textImg">
       </div>
-
     </div>
   </div>
 </template>
@@ -29,47 +26,39 @@
       ]
     }),
     mounted () {
-      $('.center').slick({
+      $('.level-menu-slider').slick({
+        infinite: true,
         centerMode: true,
-        centerPadding: '60px',
         slidesToShow: 3,
-        responsive: [
-          {
-            breakpoint: 768,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '40px',
-              slidesToShow: 3
-            }
-          },
-          {
-            breakpoint: 480,
-            settings: {
-              arrows: false,
-              centerMode: true,
-              centerPadding: '40px',
-              slidesToShow: 1
-            }
-          }
-        ]
       })
     },
   }
 </script>
 
 <style scoped lang="scss">
-  .slider {
-    > div {
-      width: 19.2vw;
-      display: inline-block;
-      height: 14vw;
-      line-height: 14vw;
-      text-align: center;
-      > img {
-        width: 19.2vw;
-        vertical-align: middle;
+  .level-menu-slider {
+    /deep/ .slick-slide {
+      div {
+        transition: all 500ms;
       }
+      &.slick-center {
+        position: relative;
+        z-index: 2;
+        div {
+          transform: scale(1.1);
+        }
+      }
+    }
+  }
+
+  .cate {
+    height: 20vw;
+    position: relative;
+    img {
+      width: 100%;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
     }
   }
 </style>
