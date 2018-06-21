@@ -1,14 +1,29 @@
 <template>
   <div id="app">
-    <router-view/>
+    <div ref="welcome" class="container welcome-container" @click="hideWelcome">
+      <Welcome/>
+    </div>
   </div>
 </template>
 
 <script>
   import './common/lib'
+  import { TimelineLite } from 'gsap'
+  import { vuexMixin } from './common/mixins'
+  import Welcome from './pages/welcome/Welcome'
 
   export default {
-    name: 'App'
+    name: 'App',
+    mixins: [vuexMixin],
+    components: {Welcome},
+    methods: {
+      hideWelcome () {
+        const $welcome = this.$refs.welcome
+        const tl = new TimelineLite()
+        tl.set($welcome, {'border-bottom-right-radius': '1000px', width: '100vh'})
+        tl.to($welcome, 2, {'border-bottom-right-radius': '1px', width: '1px', height: '1px'})
+      }
+    }
   }
 </script>
 
@@ -46,6 +61,10 @@
 
   ul, li {
     list-style: none;
+  }
+
+  .container {
+    overflow: hidden;
   }
 
   .model {

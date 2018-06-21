@@ -1,5 +1,5 @@
 <template>
-  <div class="welcome" @click="$router.push('/index')">
+  <div class="welcome">
     <img src="../../asset/welcome/coverBG.png" class="coverBG">
     <img src="../../asset/welcome/title.png" class="title levelCenter">
     <img src="../../asset/welcome/logo.png" class="logo levelCenter">
