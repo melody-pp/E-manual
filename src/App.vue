@@ -3,7 +3,9 @@
     <div ref="$welcome" class="container welcome-container" @click="hideWelcome">
       <Welcome v-if="showWelcome"/>
     </div>
-    <Cate2 v-if="!showWelcome"/>
+    <div ref="$index" class="container index-container">
+      <Index v-if="showIndex" @pullToProduct="pullToProduct"/>
+    </div>
   </div>
 </template>
 
@@ -12,14 +14,15 @@
   import { TimelineLite } from 'gsap'
   import { vuexMixin } from './common/mixins'
   import Welcome from './pages/welcome/Welcome'
-  import Cate2 from './pages/product/category/Cate2'
+  import Index from './pages/index/Index'
 
   export default {
     name: 'App',
     mixins: [vuexMixin],
-    components: {Welcome, Cate2},
+    components: {Welcome, Index},
     data: () => ({
       showWelcome: true,
+      showIndex: true,
     }),
     methods: {
       hideWelcome () {
@@ -39,6 +42,8 @@
           height: '1px',
           'border-bottom-right-radius': '1px',
         })
+      },
+      pullToProduct () {
 
       }
     }
@@ -83,6 +88,18 @@
 
   .container {
     overflow: hidden;
+    position: absolute;
+  }
+
+  .welcome-container {
+    z-index: 99;
+  }
+
+  .index-container {
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
   }
 
   .model {
