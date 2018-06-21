@@ -48,7 +48,7 @@
     }),
     mounted () {
       $('.slider').slick({
-        dots: true,
+        // dots: true,
         fade: true,
         autoplay: true,
       })
