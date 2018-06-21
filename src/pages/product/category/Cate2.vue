@@ -1,21 +1,52 @@
 <template>
-  <div class="free">
-    <img src="../../../asset/product/free/01.png" class="free01">
-    <img src="../../../asset/product/free/02.png" class="free02">
-    <img src="../../../asset/product/free/03.png" class="free03">
-    <img src="../../../asset/product/free/04.png" class="free04">
-    <img src="../../../asset/product/free/05.png" class="free05">
-    <img src="../../../asset/product/free/06.png" class="free06">
+  <div class="cate2">
+    <div class="cate2-slider" :style="{margin: `${sliderMg}px 0`}">
+      <div><img src="../../../asset/index/banner1.png"></div>
+      <div><img src="../../../asset/index/banner2.png"></div>
+      <div><img src="../../../asset/index/banner3.png"></div>
+    </div>
+
+    <div class="free" @click="clickHandler">
+      <img src="../../../asset/product/free/01.png" class="free01">
+      <img src="../../../asset/product/free/02.png" class="free02">
+      <img src="../../../asset/product/free/03.png" class="free03">
+      <img src="../../../asset/product/free/04.png" class="free04">
+      <img src="../../../asset/product/free/05.png" class="free05">
+      <img src="../../../asset/product/free/06.png" class="free06">
+    </div>
   </div>
+
 </template>
 
 <script>
+  import $ from 'jquery'
+
   export default {
-    name: 'Cate2'
+    name: 'Cate2',
+    data: () => ({
+      sliderMg: (window.innerHeight - (window.innerWidth * 16 / 9)) / 4
+    }),
+    mounted () {
+      $('.cate2-slider').slick({
+        dots: true,
+        autoplay: true,
+      })
+    },
+    methods: {
+      clickHandler () {
+        this.$emit('toCate3')
+      }
+    }
   }
 </script>
 
 <style scoped lang="scss">
+  .cate2-slider {
+    img {
+      width: 100%;
+    }
+  }
+
   .free {
     img {
       float: left;

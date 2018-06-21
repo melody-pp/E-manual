@@ -36,6 +36,11 @@
 </script>
 
 <style scoped lang="scss">
+  .levelMenu {
+    position: relative;
+    z-index: 10;
+  }
+
   .level-menu-slider {
     /deep/ .slick-slide {
       div {
@@ -53,7 +58,7 @@
   }
 
   .cate {
-    height: 20vw;
+    height: 15vw;
     position: relative;
     img {
       width: 100%;

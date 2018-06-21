@@ -1,40 +1,43 @@
 <template>
   <div id="app" ref="$app">
-    <!--<div ref="$welcome" class="container welcome-container" @click="hideWelcome">-->
-    <!--<Welcome v-if="showWelcome"/>-->
-    <!--</div>-->
-    <!--<div ref="$index" class="container index-container">-->
-    <!--<Index v-if="showIndex" @pullToProduct="pullToProduct"/>-->
-    <!--</div>-->
-    <LevelMenu/>
+
+    <div ref="$index" v-if="showIndex" class="container index-container">
+      <Index @pullToProduct="pullToProduct"/>
+    </div>
+    <div ref="$product" v-if="showProduct" class="container product-container">
+      <Product/>
+    </div>
+    <div ref="$welcome" v-if="showWelcome" class="container welcome-container" @click="hideWelcome">
+      <Welcome/>
+    </div>
   </div>
 </template>
 
 <script>
   import './common/lib'
-  import { TimelineLite } from 'gsap'
+  import { TimelineLite, TweenLite } from 'gsap'
   import { vuexMixin } from './common/mixins'
   import Welcome from './pages/welcome/Welcome'
   import Index from './pages/index/Index'
-  import LevelMenu from './common/components/LevelMenu'
+  import Product from './pages/product/Product'
 
   export default {
     name: 'App',
     mixins: [vuexMixin],
-    components: {Welcome, Index, LevelMenu},
+    components: {Welcome, Index, Product},
     data: () => ({
       showWelcome: true,
       showIndex: true,
+      showProduct: false,
     }),
     methods: {
       hideWelcome () {
         const vm = this
-        const {$app, $welcome} = vm.$refs
+        const {$welcome} = vm.$refs
 
         new TimelineLite({
           onComplete () {
             vm.showWelcome = false
-            $app.removeChild($welcome)
           }
         }).set($welcome, {
           width: '100vh',
@@ -46,7 +49,19 @@
         })
       },
       pullToProduct () {
-
+        const vm = this
+        vm.showProduct = true
+        setTimeout(() => {
+          new TimelineLite({
+            onComplete () {
+              vm.showIndex = false
+            }
+          }).to(this.$refs.$product, 1, {
+            width: '100vw',
+            height: '100vh',
+            'border-top-right-radius': '0',
+          })
+        })
       }
     }
   }
@@ -93,15 +108,19 @@
     position: absolute;
   }
 
-  .welcome-container {
-    z-index: 99;
-  }
-
   .index-container {
     top: 0;
     left: 0;
     height: 100vh;
     width: 100vw;
+  }
+
+  .product-container {
+    width: 1px;
+    height: 1px;
+    border-top-right-radius: 9999px;
+    left: 0;
+    bottom: 0;
   }
 
   .model {
