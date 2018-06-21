@@ -1,7 +1,7 @@
 <template>
-  <div id="app">
-    <div ref="welcome" class="container welcome-container" @click="hideWelcome">
-      <Welcome/>
+  <div id="app" ref="$app">
+    <div ref="$welcome" class="container welcome-container" @click="hideWelcome">
+      <Welcome v-if="showWelcome"/>
     </div>
   </div>
 </template>
@@ -16,12 +16,27 @@
     name: 'App',
     mixins: [vuexMixin],
     components: {Welcome},
+    data: () => ({
+      showWelcome: true,
+    }),
     methods: {
       hideWelcome () {
-        const $welcome = this.$refs.welcome
-        const tl = new TimelineLite()
-        tl.set($welcome, {'border-bottom-right-radius': '1000px', width: '100vh'})
-        tl.to($welcome, 2, {'border-bottom-right-radius': '1px', width: '1px', height: '1px'})
+        const vm = this
+        const {$app, $welcome} = vm.$refs
+
+        new TimelineLite({
+          onComplete () {
+            vm.showWelcome = false
+            $app.removeChild($welcome)
+          }
+        }).set($welcome, {
+          width: '100vh',
+          'border-bottom-right-radius': '1000px',
+        }).to($welcome, 1, {
+          width: '1px',
+          height: '1px',
+          'border-bottom-right-radius': '1px',
+        })
       }
     }
   }
