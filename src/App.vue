@@ -3,6 +3,7 @@
     <div ref="$welcome" class="container welcome-container" @click="hideWelcome">
       <Welcome v-if="showWelcome"/>
     </div>
+    <Cate2 v-if="!showWelcome"/>
   </div>
 </template>
 
@@ -11,11 +12,12 @@
   import { TimelineLite } from 'gsap'
   import { vuexMixin } from './common/mixins'
   import Welcome from './pages/welcome/Welcome'
+  import Cate2 from './pages/product/category/Cate2'
 
   export default {
     name: 'App',
     mixins: [vuexMixin],
-    components: {Welcome},
+    components: {Welcome, Cate2},
     data: () => ({
       showWelcome: true,
     }),
@@ -37,6 +39,7 @@
           height: '1px',
           'border-bottom-right-radius': '1px',
         })
+
       }
     }
   }
