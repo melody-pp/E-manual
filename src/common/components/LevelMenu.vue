@@ -40,6 +40,7 @@
     /deep/ .slick-slide {
       div {
         transition: all 500ms;
+        box-shadow: 0px 0px 5px #636060;
       }
       &.slick-center {
         position: relative;
