@@ -1,11 +1,12 @@
 <template>
   <div id="app" ref="$app">
-    <div ref="$welcome" class="container welcome-container" @click="hideWelcome">
-      <Welcome v-if="showWelcome"/>
-    </div>
-    <div ref="$index" class="container index-container">
-      <Index v-if="showIndex" @pullToProduct="pullToProduct"/>
-    </div>
+    <!--<div ref="$welcome" class="container welcome-container" @click="hideWelcome">-->
+    <!--<Welcome v-if="showWelcome"/>-->
+    <!--</div>-->
+    <!--<div ref="$index" class="container index-container">-->
+    <!--<Index v-if="showIndex" @pullToProduct="pullToProduct"/>-->
+    <!--</div>-->
+    <LevelMenu/>
   </div>
 </template>
 
@@ -15,11 +16,12 @@
   import { vuexMixin } from './common/mixins'
   import Welcome from './pages/welcome/Welcome'
   import Index from './pages/index/Index'
+  import LevelMenu from './common/components/LevelMenu'
 
   export default {
     name: 'App',
     mixins: [vuexMixin],
-    components: {Welcome, Index},
+    components: {Welcome, Index, LevelMenu},
     data: () => ({
       showWelcome: true,
       showIndex: true,
@@ -122,5 +124,14 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+  }
+
+  .slick-dotted.slick-slider {
+    font-size: 0;
+    margin-bottom: 0;
+  }
+
+  .slick-dots {
+    bottom: 10px;
   }
 </style>

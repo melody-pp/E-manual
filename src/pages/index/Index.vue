@@ -110,23 +110,16 @@
   }
 
   .cate {
-    padding-top: 10px;
-    padding-left: 10px;
+    padding-top: 3vw;
+    padding-left: 10vw;
     width: 100vw;
-    height: 999px;
+    height: 100vh;
     position: absolute;
+    box-shadow: 10px 10px 40px #3c3838;
+    perspective: 9999px;
     img {
       height: 20px;
     }
   }
 </style>
-<style>
-  .slick-dotted.slick-slider {
-    font-size: 0;
-    margin-bottom: 0;
-  }
 
-  .slick-dots {
-    bottom: 10px;
-  }
-</style>
