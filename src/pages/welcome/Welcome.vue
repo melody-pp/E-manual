@@ -15,6 +15,8 @@
 <style scoped lang="scss">
   .welcome {
     position: relative;
+    width: 100vw;
+    height: 100vh;
     .coverBG {
       width: 100vw;
       height: 100vh;
