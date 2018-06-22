@@ -36,10 +36,10 @@
     methods: {
       showCate () {
         this.cateVisible = true
-        TweenMax.staggerTo(document.querySelectorAll('.side-menu-list .cate'), .5, {transform: 'rotateY(0deg)'}, .2)
+        TweenMax.staggerTo(document.querySelectorAll('.side-menu-list .cate'), .4, {transform: 'rotateY(0deg)'}, .2)
       },
       hideCate () {
-        TweenMax.staggerTo(document.querySelectorAll('.side-menu-list .cate'), .5, {
+        TweenMax.staggerTo(document.querySelectorAll('.side-menu-list .cate'), .4, {
           transform: 'rotateY(100deg)',
           onComplete: () => this.cateVisible = false
         }, .2)
