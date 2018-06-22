@@ -145,6 +145,10 @@
     transform: translateX(-50%);
   }
 
+  .slick-list {
+    overflow: visible;
+  }
+
   .slick-dotted.slick-slider {
     font-size: 0;
     margin-bottom: 0;

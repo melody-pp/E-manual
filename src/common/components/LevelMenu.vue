@@ -50,7 +50,8 @@
       &.slick-center {
         position: relative;
         z-index: 2;
-        div {
+        .cate {
+          transform-origin: center;
           transform: scale(1.1);
         }
       }
