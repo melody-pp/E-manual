@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="index">
     <div class="index-slider">
       <div><img src="../../asset/index/banner1.png"></div>
       <div><img src="../../asset/index/banner2.png"></div>
@@ -84,7 +84,7 @@
         }
       },
       changeCateOpacity (opacity) {
-        $('.cate').each((i, cate) => {
+        $('.index .cate').each((i, cate) => {
           if (cate !== this.movingCate) {
             cate.style.opacity = opacity
           }

@@ -74,8 +74,6 @@
     }),
     methods: {
       toDetail (cate3) {
-
-        console.log('toDetail', 'cate3.vue')
         this.$emit('toDetail', cate3)
       }
     }

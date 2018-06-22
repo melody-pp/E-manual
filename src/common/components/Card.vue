@@ -49,6 +49,9 @@
         this.lastX = event.changedTouches[0].clientX
       },
       touchend () {
+        if (!this.itemImg) {
+          return
+        }
         const clientX = event.changedTouches[0].clientX
         if (this.lastX - clientX < -20 && this.rotateY === 0) {
           this.rotateY = 90
