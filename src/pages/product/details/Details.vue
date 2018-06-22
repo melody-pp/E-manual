@@ -13,13 +13,17 @@
         <img src="../../../asset/sportsDetail/03-1.png">
       </div>
     </div>
-    <div class="functionBar">
+    <div class="functionBar clearfix">
       <img src="../../../asset/tasteDetail/collectIcon.png" @click="toLocation=!toLocation" class="collectIcon">
       <img src="../../../asset/tasteDetail/locationIcon.png" @click="toLocation=!toLocation" class="locationIcon">
       <img src="../../../asset/tasteDetail/shareIcon.png" @click="toLocation=!toLocation" class="shareIcon">
       <img src="../../../asset/tasteDetail/goBackIcon.png" @click="toLocation=!toLocation" class="goBackIcon">
       <div @click="toLocation=!toLocation" v-show="toLocation" class="model">
-        <img src="../../../asset/location.png" class="center">
+        <div class="index-slider">
+          <div><img src="../../../asset/map/001.png"></div>
+          <div><img src="../../../asset/map/002.png"></div>
+          <div><img src="../../../asset/map/003.png"></div>
+        </div>
       </div>
     </div>
 
@@ -27,6 +31,8 @@
 </template>
 
 <script>
+  import $ from 'jquery'
+
   export default {
     name: 'Details',
     data () {
@@ -34,7 +40,14 @@
         toLocation: false
       }
     },
-    methods: {}
+    methods: {},
+    mounted () {
+      $('.index-slider').slick({
+        // dots: true,
+        fade: true,
+        autoplay: false,
+      })
+    },
   }
 </script>
 
@@ -65,15 +78,33 @@
       }
     }
     .functionBar {
+      background-color: #e0dddd;
+      padding: 6vw 0;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+      left: 0;
       > img {
-        width: 8%;
+        width: 9vw;
+        float: left;
+        margin: 0 4vw;
+        vertical-align: middle;
+      }
+      .goBackIcon {
+        float: right;
       }
     }
-    .model {
-      img {
-        width: 60vw;
+    .index-slider {
+      top: 50%;
+      transform: translateY(-50%);
+      > div {
+        img {
+          width: 55vw;
+        }
       }
+
     }
+
   }
 
 </style>

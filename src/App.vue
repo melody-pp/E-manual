@@ -130,6 +130,7 @@
     position: absolute;
     left: 0;
     top: 0;
+    z-index: 100;
   }
 
   .center {
@@ -162,5 +163,9 @@
   .slick-dots li.slick-active button:before {
     opacity: 1;
     color: #7d1820;
+  }
+
+  .slick-dots li {
+    margin: 0;
   }
 </style>
