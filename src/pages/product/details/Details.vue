@@ -18,15 +18,15 @@
       <img src="../../../asset/tasteDetail/locationIcon.png" @click="toLocation=!toLocation" class="locationIcon">
       <img src="../../../asset/tasteDetail/shareIcon.png" @click="toLocation=!toLocation" class="shareIcon">
       <img src="../../../asset/tasteDetail/goBackIcon.png" @click="toLocation=!toLocation" class="goBackIcon">
-      <div @click="toLocation=!toLocation" v-show="toLocation" class="model">
-        <div class="index-slider">
-          <div><img src="../../../asset/map/001.png"></div>
-          <div><img src="../../../asset/map/002.png"></div>
-          <div><img src="../../../asset/map/003.png"></div>
-        </div>
+
+    </div>
+    <div @click="toLocation=!toLocation" v-show="toLocation" class="model">
+      <div class="index-slider">
+        <div><img src="../../../asset/map/001.png"></div>
+        <div><img src="../../../asset/map/002.png"></div>
+        <div><img src="../../../asset/map/003.png"></div>
       </div>
     </div>
-
   </div>
 </template>
 
@@ -99,7 +99,7 @@
       transform: translateY(-50%);
       > div {
         img {
-          width: 55vw;
+          width: 70vw;
         }
       }
 
