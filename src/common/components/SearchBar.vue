@@ -1,12 +1,16 @@
 <template>
   <div class="search">
     <div class="searchIcon" @click="showSearch">
-      <img src="../../asset/index/searchIcon2.png">
+      <img src="../../asset/index/searchIcon1.png">
     </div>
     <div class="searchBar" ref="searchBar" @click="hideSearch">
-      <img class="searchText" src="../../asset/index/SearchText.png">
-      <input type="text">
-      <img class="searchIcon" src="../../asset/index/searchIcon1.png">
+      <img class="searchText fl" src="../../asset/index/SearchText.png">
+      <div class="searchBox fl clearfix">
+        <input type="text" class="searchInput fl">
+        <span class="spliterLine fl"></span>
+        <img class="searchIcon fl" src="../../asset/index/searchIcon2.png">
+      </div>
+
     </div>
   </div>
 </template>
@@ -47,18 +51,41 @@
 
   .searchBar {
     width: 100vw;
-    padding: 50px 0;
+    padding: 14vw 5vw;
     background: #373743;
     box-sizing: border-box;
     vertical-align: bottom;
     text-align: center;
     transform: matrix(1, 0, 0, 1, 0, -200);
+
     .searchText {
-      height: 20px;
+      width: 18vw;
     }
-    .searchIcon {
-      height: 16px;
+    .searchBox {
+      width: 67vw;
+      margin-left: 5vw;
+      background-color: #fff;
+      height: 5vw;
+      line-height: 5vw;
+      .searchIcon {
+        width: 4vw;
+        margin: 0.6vw 1.2vw;
+      }
+      .searchInput {
+        width: 60vw;
+        border: none;
+        height: 5vw;
+        line-height: 5vw;
+      }
+      .spliterLine {
+        display: inline-block;
+        width: 1px;
+        height: 4vw;
+        background-color: #9e9d9d;
+        margin-top: 0.6vw;
+      }
     }
+
   }
 
 </style>

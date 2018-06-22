@@ -56,6 +56,7 @@
   .sideMenu {
     position: absolute;
     z-index: 99;
+    height: 10vw;
     > .menuIcon {
       top: 10px;
       left: 20px;
