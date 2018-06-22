@@ -4,9 +4,14 @@
     <div ref="$index" v-if="showIndex" class="container index-container">
       <Index @pullToProduct="pullToProduct"/>
     </div>
+
     <div ref="$product" v-if="showProduct" class="container product-container">
       <Product/>
     </div>
+
+    <SideMenu @clickToProduct="clickToProduct"/>
+    <SearchBar @showSearchBar="showSearchBar"/>
+
     <div ref="$welcome" v-if="showWelcome" class="container welcome-container" @click="hideWelcome">
       <Welcome/>
     </div>
@@ -20,11 +25,13 @@
   import Welcome from './pages/welcome/Welcome'
   import Index from './pages/index/Index'
   import Product from './pages/product/Product'
+  import SideMenu from './common/components/SideMenu'
+  import SearchBar from './common/components/SearchBar'
 
   export default {
     name: 'App',
     mixins: [vuexMixin],
-    components: {Welcome, Index, Product},
+    components: {Welcome, Index, Product, SideMenu, SearchBar},
     data: () => ({
       showWelcome: true,
       showIndex: true,
@@ -62,7 +69,28 @@
             'border-top-right-radius': '0',
           })
         })
-      }
+      },
+      clickToProduct () {
+        this.showProduct = false
+        setTimeout(() => {
+          this.showProduct = true
+          setTimeout(() => {
+            new TimelineLite({
+              onComplete: () => this.showIndex = false
+            }).set(this.$refs.$product, {
+              width: '1px',
+              height: '1px',
+              'border-top-right-radius': '9999px',
+            }).to(this.$refs.$product, 1, {
+              width: '100vw',
+              height: '100vh',
+              'border-top-right-radius': '0',
+            })
+          })
+
+        })
+      },
+      showSearchBar () {},
     }
   }
 </script>
@@ -106,6 +134,11 @@
   .container {
     overflow: hidden;
     position: absolute;
+  }
+
+  .welcome-container {
+    position: absolute;
+    z-index: 999;
   }
 
   .index-container {

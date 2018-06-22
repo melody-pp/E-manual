@@ -1,6 +1,5 @@
 <template>
   <div class="search">
-    <img src="../../asset/index/menuIcon.png">
   </div>
 </template>
 
@@ -11,5 +10,8 @@
 </script>
 
 <style scoped>
+  .search {
+    position: absolute;
+  }
 
 </style>

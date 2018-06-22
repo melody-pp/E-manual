@@ -20,8 +20,6 @@
     }),
     methods: {
       toDetail () {
-        console.log('toDetail', 'product.vue')
-
         this.showCategory = false
         this.showDetail = true
       }
@@ -32,7 +30,7 @@
 <style scoped>
   .product {
     box-sizing: border-box;
-    padding-top: 6vw;
+    padding-top: 40px;
     width: 100vw;
     height: 100vh;
   }

@@ -22,8 +22,6 @@
         this.showCate3 = true
       },
       toDetail(){
-        console.log('toDetail', 'category.vue')
-
         this.$emit('toDetail')
       }
     }
