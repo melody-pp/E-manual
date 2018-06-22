@@ -72,9 +72,16 @@
     position: relative;
     transition: all .5s;
     transform-style: preserve-3d;
+    .front {
+      img {
+        width: 93%;
+        margin-top: 1vw;
+      }
+    }
     > div {
       position: absolute;
       box-sizing: border-box;
+      text-align: center;
       img {
         width: 100%;
       }

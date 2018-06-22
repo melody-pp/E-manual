@@ -1,9 +1,15 @@
 <template>
   <div class="cate2">
     <div class="cate2-slider" :style="{margin: `${sliderMg}px 0`}">
-      <div><img src="../../../asset/index/banner1.png"></div>
-      <div><img src="../../../asset/index/banner2.png"></div>
-      <div><img src="../../../asset/index/banner3.png"></div>
+      <div><img src="../../../asset/product/free/banner1.png"></div>
+      <div><img src="../../../asset/product/free/banner1.png"></div>
+      <div><img src="../../../asset/product/free/banner1.png"></div>
+      <div><img src="../../../asset/product/free/banner1.png"></div>
+      <div><img src="../../../asset/product/free/banner1.png"></div>
+      <div><img src="../../../asset/product/free/banner1.png"></div>
+      <div><img src="../../../asset/product/free/banner1.png"></div>
+      <div><img src="../../../asset/product/free/banner1.png"></div>
+
     </div>
 
     <div class="free" @click="clickHandler">

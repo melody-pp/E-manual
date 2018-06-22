@@ -151,6 +151,16 @@
   }
 
   .slick-dots {
-    bottom: 10px;
+    bottom: 15px;
+  }
+
+  .slick-dots li button:before {
+    opacity: 1;
+    color: #dcdcdc;
+  }
+
+  .slick-dots li.slick-active button:before {
+    opacity: 1;
+    color: #7d1820;
   }
 </style>
