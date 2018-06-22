@@ -1,6 +1,6 @@
 <template>
   <div id="app" ref="$app">
-
+    <!--<img src="./asset/welcome/logo.png" v-show="showIndex|showProduct">-->
     <div ref="$index" v-if="showIndex" class="container index-container">
       <Index @pullToProduct="pullToProduct"/>
     </div>
