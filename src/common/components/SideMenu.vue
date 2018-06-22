@@ -1,6 +1,6 @@
 <template>
   <div class="sideMenu">
-    <div class="menuIcon active" @click="showCate" v-show="!cateVisible">
+    <div class="menuIcon" @click="showCate" v-show="!cateVisible">
       <img src="../../asset/index/menuIcon.png">
     </div>
 
@@ -45,9 +45,8 @@
         }, .2)
       },
       toProduct () {
-        console.log('clickToProduct sideMenu.vue')
-        this.$emit('clickToProduct')
         this.hideCate()
+        this.$emit('clickToProduct')
       }
     }
   }
@@ -61,16 +60,13 @@
       top: 10px;
       left: 20px;
       width: 20px;
+      z-index: 2;
       position: absolute;
       cursor: pointer;
       img {
         width: 100%;
       }
     }
-  }
-
-  .active {
-    z-index: 2;
   }
 
   .side-menu-list {
@@ -97,5 +93,4 @@
       width: 100%;
     }
   }
-
 </style>
