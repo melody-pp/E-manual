@@ -1,30 +1,30 @@
 <template>
   <div class="details">
-    <img src="../../../asset/sportsDetail/01.png" class="title">
+    <img src="../../asset/sportsDetail/01.png" class="title">
     <div class="product1Box">
-      <img src="../../../asset/sportsDetail/02.png" class="product1">
+      <img src="../../asset/sportsDetail/02.png" class="product1">
       <div class="product1Txt">
-        <img src="../../../asset/sportsDetail/02-1.png">
+        <img src="../../asset/sportsDetail/02-1.png">
       </div>
     </div>
     <div class="product2Box">
-      <img src="../../../asset/sportsDetail/03.png" class="product2">
+      <img src="../../asset/sportsDetail/03.png" class="product2">
       <div class="product2Txt">
-        <img src="../../../asset/sportsDetail/03-1.png">
+        <img src="../../asset/sportsDetail/03-1.png">
       </div>
     </div>
     <div class="functionBar clearfix">
-      <img src="../../../asset/tasteDetail/collectIcon.png" @click="toLocation=!toLocation" class="collectIcon">
-      <img src="../../../asset/tasteDetail/locationIcon.png" @click="toLocation=!toLocation" class="locationIcon">
-      <img src="../../../asset/tasteDetail/shareIcon.png" @click="toLocation=!toLocation" class="shareIcon">
-      <img src="../../../asset/tasteDetail/goBackIcon.png" @click="toLocation=!toLocation" class="goBackIcon">
+      <img src="../../asset/tasteDetail/collectIcon.png" class="collectIcon">
+      <img src="../../asset/tasteDetail/locationIcon.png" @click="toLocation=!toLocation" class="locationIcon">
+      <img src="../../asset/tasteDetail/shareIcon.png" class="shareIcon">
+      <img src="../../asset/tasteDetail/goBackIcon.png" @click="detailToCate3" class="goBackIcon">
 
     </div>
     <div @click="toLocation=!toLocation" v-show="toLocation" class="model">
-      <div class="index-slider">
-        <div><img src="../../../asset/map/001.png"></div>
-        <div><img src="../../../asset/map/002.png"></div>
-        <div><img src="../../../asset/map/003.png"></div>
+      <div class="location-slider">
+        <div class="location-slide"><img class="center" src="../../asset/map/001.png"></div>
+        <div class="location-slide"><img class="center" src="../../asset/map/002.png"></div>
+        <div class="location-slide"><img class="center" src="../../asset/map/003.png"></div>
       </div>
     </div>
   </div>
@@ -40,9 +40,13 @@
         toLocation: false
       }
     },
-    methods: {},
+    methods: {
+      detailToCate3(){
+        this.$emit('detailToCate3')
+      }
+    },
     mounted () {
-      $('.index-slider').slick({
+      $('.location-slider').slick({
         // dots: true,
         fade: true,
         autoplay: false,
@@ -94,17 +98,17 @@
         float: right;
       }
     }
-    .index-slider {
-      top: 50%;
-      transform: translateY(-50%);
-      > div {
+    .location-slider {
+      height: 100vh;
+
+      /deep/ .location-slide {
+        height: 100vh;
+        position: relative;
         img {
           width: 70vw;
         }
       }
 
     }
-
   }
-
 </style>

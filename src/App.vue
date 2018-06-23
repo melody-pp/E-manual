@@ -1,15 +1,15 @@
 <template>
   <div id="app" ref="$app">
-    <!--<img src="./asset/welcome/logo.png" v-show="showIndex|showProduct">-->
+    <img class="logo" src="./asset/welcome/logo.png" v-show="(showIndex||showProduct)&&!showWelcome">
     <div ref="$index" v-if="showIndex" class="container index-container">
-      <Index @pullToProduct="pullToProduct"/>
+      <Index @pullToProduct="toProduct"/>
     </div>
 
     <div ref="$product" v-if="showProduct" class="container product-container">
       <Product/>
     </div>
 
-    <SideMenu @clickToProduct="clickToProduct"/>
+    <SideMenu @clickToProduct="toProduct"/>
     <SearchBar @showSearchBar="showSearchBar"/>
 
     <div ref="$welcome" v-if="showWelcome" class="container welcome-container" @click="hideWelcome">
@@ -55,22 +55,7 @@
           'border-bottom-right-radius': '1px',
         })
       },
-      pullToProduct () {
-        const vm = this
-        vm.showProduct = true
-        setTimeout(() => {
-          new TimelineLite({
-            onComplete () {
-              vm.showIndex = false
-            }
-          }).to(this.$refs.$product, 1, {
-            width: '100vw',
-            height: '100vh',
-            'border-top-right-radius': '0',
-          })
-        })
-      },
-      clickToProduct () {
+      toProduct () {
         this.showProduct = false
         setTimeout(() => {
           this.showProduct = true
@@ -204,5 +189,13 @@
 
   .slick-dots li {
     margin: 0;
+  }
+
+  .logo {
+    width: 15vw;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
   }
 </style>

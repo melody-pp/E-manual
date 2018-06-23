@@ -38,6 +38,7 @@
   .levelMenu {
     position: relative;
     z-index: 10;
+    overflow: visible;
   }
 
   .level-menu-slider {
@@ -48,6 +49,8 @@
         .cate {
           transform-origin: center;
           transform: scale(1.1);
+          border-left: 1px solid #fff;
+          border-right: 1px solid #fff;
         }
       }
     }

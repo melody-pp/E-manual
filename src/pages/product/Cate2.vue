@@ -1,24 +1,24 @@
 <template>
   <div class="cate2">
     <div class="cate2-slider" :style="{margin: `${sliderMg}px 0`}">
-      <div><img src="../../../asset/product/free/banner1.png"></div>
-      <div><img src="../../../asset/product/free/banner1.png"></div>
-      <div><img src="../../../asset/product/free/banner1.png"></div>
-      <div><img src="../../../asset/product/free/banner1.png"></div>
-      <div><img src="../../../asset/product/free/banner1.png"></div>
-      <div><img src="../../../asset/product/free/banner1.png"></div>
-      <div><img src="../../../asset/product/free/banner1.png"></div>
-      <div><img src="../../../asset/product/free/banner1.png"></div>
+      <div><img src="../../asset/product/free/banner1.png"></div>
+      <div><img src="../../asset/product/free/banner1.png"></div>
+      <div><img src="../../asset/product/free/banner1.png"></div>
+      <div><img src="../../asset/product/free/banner1.png"></div>
+      <div><img src="../../asset/product/free/banner1.png"></div>
+      <div><img src="../../asset/product/free/banner1.png"></div>
+      <div><img src="../../asset/product/free/banner1.png"></div>
+      <div><img src="../../asset/product/free/banner1.png"></div>
 
     </div>
 
     <div class="free" @click="clickHandler">
-      <img src="../../../asset/product/free/01.png" class="free01">
-      <img src="../../../asset/product/free/02.png" class="free02">
-      <img src="../../../asset/product/free/03.png" class="free03">
-      <img src="../../../asset/product/free/04.png" class="free04">
-      <img src="../../../asset/product/free/05.png" class="free05">
-      <img src="../../../asset/product/free/06.png" class="free06">
+      <img src="../../asset/product/free/01.png" class="free01">
+      <img src="../../asset/product/free/02.png" class="free02">
+      <img src="../../asset/product/free/03.png" class="free03">
+      <img src="../../asset/product/free/04.png" class="free04">
+      <img src="../../asset/product/free/05.png" class="free05">
+      <img src="../../asset/product/free/06.png" class="free06">
     </div>
   </div>
 
@@ -54,6 +54,9 @@
   }
 
   .free {
+    position: absolute;
+    top: 57vh;
+    left: 0;
     img {
       float: left;
     }

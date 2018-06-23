@@ -1,27 +1,40 @@
 <template>
   <div class="product">
     <LevelMenu/>
-    <Category v-if="showCategory" @toDetail="toDetail"/>
-    <Detail v-if="showDetail"/>
+    <Cate2 v-if="showCate2" @toCate3="toCate3"/>
+    <Cate3 v-if="showCate3" @toDetail="toDetail"/>
+    <Detail v-if="showDetail" @detailToCate3="detailToCate3"/>
   </div>
 </template>
 
 <script>
   import LevelMenu from '../../common/components/LevelMenu'
-  import Category from './category/Category'
-  import Detail from './details/Details'
+  import Detail from './Details'
+  import Cate2 from './Cate2'
+  import Cate3 from './Cate3'
 
   export default {
     name: 'Product',
-    components: {LevelMenu, Category, Detail},
+    components: {LevelMenu, Cate2, Cate3, Detail},
     data: () => ({
-      showCategory: true,
-      showDetail: false
+      showDetail: false,
+      showCate2: true,
+      showCate3: false,
     }),
     methods: {
       toDetail () {
-        this.showCategory = false
+        this.showCate2 = false
+        this.showCate3 = false
         this.showDetail = true
+      },
+      toCate3 () {
+        this.showCate2 = false
+        this.showDetail = false
+
+        this.showCate3 = true
+      },
+      detailToCate3 () {
+        this.toCate3()
       }
     }
   }
@@ -30,7 +43,7 @@
 <style scoped>
   .product {
     box-sizing: border-box;
-    padding-top: 40px;
+    padding-top: 7vh;
     width: 100vw;
     height: 100vh;
   }
