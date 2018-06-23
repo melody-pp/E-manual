@@ -1,7 +1,7 @@
 <template>
   <div class="cate2">
     <div class="cate2-slider" :style="{margin: `${sliderMg}px 0`}">
-      <div><img src="../../asset/product/free/banner1.png"></div>
+      <div @click="toDetail"><img src="../../asset/product/free/banner1.png"></div>
       <div><img src="../../asset/product/free/banner1.png"></div>
       <div><img src="../../asset/product/free/banner1.png"></div>
       <div><img src="../../asset/product/free/banner1.png"></div>
@@ -26,9 +26,11 @@
 
 <script>
   import $ from 'jquery'
+  import { vuexMixin } from '../../common/mixins'
 
   export default {
     name: 'Cate2',
+    mixins: [vuexMixin],
     data: () => ({
       sliderMg: (window.innerHeight - (window.innerWidth * 16 / 9)) / 4
     }),
@@ -39,6 +41,10 @@
       })
     },
     methods: {
+      toDetail () {
+        this.setState({lastState: 'hot'})
+        this.$emit('cate2ToDetail')
+      },
       clickHandler () {
         this.$emit('toCate3')
       }

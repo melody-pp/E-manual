@@ -36,13 +36,14 @@
     methods: {
       showCate () {
         this.cateVisible = true
+        TweenMax.set(document.querySelector('.side-menu-list'), {x: 0})
         TweenMax.staggerTo(document.querySelectorAll('.side-menu-list .cate'), .4, {transform: 'rotateY(0deg)'}, .2)
       },
       hideCate () {
-        TweenMax.staggerTo(document.querySelectorAll('.side-menu-list .cate'), .4, {
-          transform: 'rotateY(100deg)',
-          onComplete: () => this.cateVisible = false
-        }, .2)
+        TweenMax.staggerTo(document.querySelectorAll('.side-menu-list .cate'), .4, {transform: 'rotateY(100deg)'}, .2, () => {
+          this.cateVisible = false
+          TweenMax.set(document.querySelector('.side-menu-list'), {x: -999})
+        })
       },
       toProduct () {
         this.hideCate()

@@ -118,5 +118,6 @@ export default {
     },
   ],
   currentCat1: '一级分类1',
-  currentCat2: '1-1'
+  currentCat2: '1-1',
+  lastState: ''
 }

@@ -11,9 +11,11 @@
 
 <script>
   import Card from '../../common/components/Card'
+  import { vuexMixin } from '../../common/mixins'
 
   export default {
     name: 'Cate3',
+    mixins: [vuexMixin],
     components: {Card},
     data: () => ({
       cateSize: 0.3 * window.innerWidth,
@@ -74,6 +76,7 @@
     }),
     methods: {
       toDetail (cate3) {
+        this.setState({lastState: 'cate3'})
         this.$emit('toDetail', cate3)
       }
     }

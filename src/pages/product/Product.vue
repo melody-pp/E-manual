@@ -1,20 +1,23 @@
 <template>
   <div class="product">
     <LevelMenu/>
-    <Cate2 v-if="showCate2" @toCate3="toCate3"/>
+    <Cate2 v-if="showCate2" @toCate3="toCate3" @cate2ToDetail="toDetail"/>
     <Cate3 v-if="showCate3" @toDetail="toDetail"/>
-    <Detail v-if="showDetail" @detailToCate3="detailToCate3"/>
+    <Detail v-if="showDetail" @goBack="goBack"/>
   </div>
 </template>
 
 <script>
   import LevelMenu from '../../common/components/LevelMenu'
+  import { vuexMixin } from '../../common/mixins'
+
   import Detail from './Details'
   import Cate2 from './Cate2'
   import Cate3 from './Cate3'
 
   export default {
     name: 'Product',
+    mixins: [vuexMixin],
     components: {LevelMenu, Cate2, Cate3, Detail},
     data: () => ({
       showDetail: false,
@@ -33,8 +36,19 @@
 
         this.showCate3 = true
       },
-      detailToCate3 () {
-        this.toCate3()
+      goBack () {
+        console.log('goback procduct')
+        console.log(this.lastState)
+        if (this.lastState === 'cate3') {
+
+          this.toCate3()
+        }
+
+        if (this.lastState === 'hot') {
+          this.showCate2 = true
+          this.showCate3 = false
+          this.showDetail = false
+        }
       }
     }
   }

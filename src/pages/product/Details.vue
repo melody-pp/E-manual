@@ -17,7 +17,7 @@
       <img src="../../asset/tasteDetail/collectIcon.png" class="collectIcon">
       <img src="../../asset/tasteDetail/locationIcon.png" @click="toLocation=!toLocation" class="locationIcon">
       <img src="../../asset/tasteDetail/shareIcon.png" class="shareIcon">
-      <img src="../../asset/tasteDetail/goBackIcon.png" @click="detailToCate3" class="goBackIcon">
+      <img src="../../asset/tasteDetail/goBackIcon.png" @click="goBack" class="goBackIcon">
 
     </div>
     <div @click="toLocation=!toLocation" v-show="toLocation" class="model">
@@ -41,8 +41,10 @@
       }
     },
     methods: {
-      detailToCate3(){
-        this.$emit('detailToCate3')
+      goBack () {
+        console.log('goback detail')
+        this.$emit('goBack')
+
       }
     },
     mounted () {
