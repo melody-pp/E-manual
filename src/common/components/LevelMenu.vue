@@ -1,5 +1,5 @@
 <template>
-  <div class="levelMenu">
+  <div class="levelMenu clearfix">
     <div class="level-menu-slider">
       <div class="cate" v-for="cat in cat1List" :style="{background: cat.bgc}">
         <img :src="cat.textImg">
@@ -27,7 +27,6 @@
     }),
     mounted () {
       $('.level-menu-slider').slick({
-        infinite: true,
         centerMode: true,
         slidesToShow: 3,
       })
@@ -43,10 +42,6 @@
 
   .level-menu-slider {
     /deep/ .slick-slide {
-      div {
-        transition: all 500ms;
-        box-shadow: 0px 0px 5px #636060;
-      }
       &.slick-center {
         position: relative;
         z-index: 2;

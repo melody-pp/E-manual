@@ -35,7 +35,7 @@
 <style scoped lang="scss">
   .search {
     right: 0;
-    z-index: 98;
+    z-index: 99;
     position: absolute;
     > .searchIcon {
       top: 10px;
@@ -51,13 +51,15 @@
 
   .searchBar {
     width: 100vw;
+    left: -100vw;
+    top: 0;
     padding: 14vw 5vw;
+    position: absolute;
     background: #373743;
     box-sizing: border-box;
     vertical-align: bottom;
     text-align: center;
     transform: matrix(1, 0, 0, 1, 0, -200);
-
     .searchText {
       width: 18vw;
     }
