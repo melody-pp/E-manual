@@ -69,6 +69,7 @@
       background-color: #fff;
       height: 5vw;
       line-height: 5vw;
+      border-radius: 3px;
       .searchIcon {
         width: 4vw;
         margin: 0.6vw 1.2vw;

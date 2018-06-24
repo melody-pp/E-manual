@@ -33,6 +33,9 @@
         {textImg: require('../../asset/index/slide08.png')},
       ]
     }),
+    mounted(){
+      this.bus.$on('hideCate', this.hideCate.bind(this))
+    },
     methods: {
       showCate () {
         this.cateVisible = true

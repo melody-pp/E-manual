@@ -56,6 +56,7 @@
         })
       },
       toProduct () {
+        this.bus.$emit('hideCate')
         this.showProduct = false
         setTimeout(() => {
           this.showProduct = true

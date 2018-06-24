@@ -26,19 +26,20 @@
     }),
     methods: {
       toDetail () {
+        this.bus.$emit('hideCate')
         this.showCate2 = false
         this.showCate3 = false
         this.showDetail = true
       },
       toCate3 () {
+        this.bus.$emit('hideCate')
         this.showCate2 = false
         this.showDetail = false
 
         this.showCate3 = true
       },
       goBack () {
-        console.log('goback procduct')
-        console.log(this.lastState)
+        this.bus.$emit('hideCate')
         if (this.lastState === 'cate3') {
 
           this.toCate3()
