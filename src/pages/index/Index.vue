@@ -47,6 +47,9 @@
         fade: true,
         autoplay: true,
       })
+      this.axios.post('/yingfei/index.php/index/index/onecategory').then(res => {
+        console.log(res.data)
+      })
     },
     methods: {
       touchstart (event) {
