@@ -7,11 +7,13 @@
     </div>
 
     <div class="cates">
-      <div class="cate" v-for="(cat,index) in cat1List" :style="{
-      background: cat.bgc,
-      top: index * cateHeight + 'px',
-      }" @touchstart="touchstart" @touchmove="touchmove($event, index)" @touchend="touchend(index)">
-        <img :src="cat.textImg">
+      <div class="cate"
+           v-for="(cat,index) in cate1List"
+           @touchstart="touchstart"
+           @touchend="touchend(index)"
+           @touchmove="touchmove($event, index)"
+           :style="{background: cat.bgc,top: index * cateHeight + 'px'}">
+        <img :src="cat.thumbw">
       </div>
     </div>
   </div>
@@ -27,29 +29,35 @@
     mixins: [vuexMixin],
     components: {},
     data: () => ({
-      cat1List: [
-        {textImg: require('../../asset/index/01.png'), bgc: 'rgb(209,192,165)'},
-        {textImg: require('../../asset/index/02.png'), bgc: 'rgb(166,147,124)'},
-        {textImg: require('../../asset/index/03.png'), bgc: 'rgb(126,107,90)'},
-        {textImg: require('../../asset/index/04.png'), bgc: 'rgb(74,58,33)'},
-        {textImg: require('../../asset/index/05.png'), bgc: 'rgb(54,46,43)'},
-        {textImg: require('../../asset/index/06.png'), bgc: 'rgb(207,169,114)'},
-        {textImg: require('../../asset/index/07.png'), bgc: 'rgb(178,136,80)'},
-        {textImg: require('../../asset/index/08.png'), bgc: 'rgb(153,108,51)'},
+      bgcList: [
+        'rgb(209,192,165)',
+        'rgb(166,147,124)',
+        'rgb(126,107,90)',
+        'rgb(74,58,33)',
+        'rgb(54,46,43)',
+        'rgb(207,169,114)',
+        'rgb(178,136,80)',
+        'rgb(153,108,51)',
       ],
       lastY: 0,
       movingCate: null,
       cateHeight: window.innerWidth * 0.11
     }),
     mounted () {
-      $('.index-slider').slick({
-        // dots: true,
-        fade: true,
-        autoplay: true,
-      })
       this.axios.post('/yingfei/index.php/index/index/onecategory').then(res => {
-        console.log(res.data)
+        res.data.forEach((item, i) => {item.bgc = this.bgcList[i]})
+        this.setState({cate1List: res.data})
+
+        this.$nextTick(() => {
+          $('.index-slider').slick({
+            fade: true,
+            autoplay: true,
+          })
+        })
       })
+    },
+    beforeDestroy () {
+      $('.index-slider').slick('unslick')
     },
     methods: {
       touchstart (event) {
@@ -78,7 +86,8 @@
             ease: Elastic.easeOut.config(1, 0.5),
           })
         } else {
-          this.$emit('pullToProduct', index)
+          this.setState({currentCat1: this.cate1List[index].id})
+          this.$emit('toProduct', index)
           this.changeCateOpacity(0)
           TweenLite.to(this.movingCate, 1, {
             top: -window.innerWidth * 0.784 + 'px',

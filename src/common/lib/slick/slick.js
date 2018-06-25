@@ -1320,7 +1320,7 @@ Slick.prototype.initADA = function () {
     tabControlIndexes = _.getNavigableIndexes().filter(function (val) {
       return (val >= 0) && (val < _.slideCount)
     })
-
+  console.log(_,_.$slides)
   _.$slides.add(_.$slideTrack.find('.slick-cloned')).attr({
     'aria-hidden': 'true',
     'tabindex': '-1'

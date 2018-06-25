@@ -1,27 +1,19 @@
 <template>
   <div class="cate2">
     <div class="cate2-slider" :style="{margin: `${sliderMg}px 0`}">
-      <div @click="toDetail"><img src="../../asset/product/free/banner1.png"></div>
-      <div><img src="../../asset/product/free/banner1.png"></div>
-      <div><img src="../../asset/product/free/banner1.png"></div>
-      <div><img src="../../asset/product/free/banner1.png"></div>
-      <div><img src="../../asset/product/free/banner1.png"></div>
-      <div><img src="../../asset/product/free/banner1.png"></div>
-      <div><img src="../../asset/product/free/banner1.png"></div>
-      <div><img src="../../asset/product/free/banner1.png"></div>
-
+      <div v-for="cate2 in cate2List" :key="cate2.id" @click="toDetail(cate2.id)">
+        <img :src="cate2.thumb">
+      </div>
     </div>
 
-    <div class="free" @click="clickHandler">
-      <img src="../../asset/product/free/01.png" class="free01">
-      <img src="../../asset/product/free/02.png" class="free02">
-      <img src="../../asset/product/free/03.png" class="free03">
-      <img src="../../asset/product/free/04.png" class="free04">
-      <img src="../../asset/product/free/05.png" class="free05">
-      <img src="../../asset/product/free/06.png" class="free06">
+    <div class="free">
+      <img v-for="(cate2,index) in cate2List"
+           :key="cate2.id"
+           :src="cate2.thumb"
+           :class="[`free0${index+1}`]"
+           @click="clickHandler(cate2.id)">
     </div>
   </div>
-
 </template>
 
 <script>
@@ -32,20 +24,28 @@
     name: 'Cate2',
     mixins: [vuexMixin],
     data: () => ({
+      cate2List: [],
       sliderMg: (window.innerHeight - (window.innerWidth * 16 / 9)) / 4
     }),
     mounted () {
-      $('.cate2-slider').slick({
-        dots: true,
-        autoplay: true,
+      this.axios.get('/yingfei/index.php/index/index/twocategory', {params: {ocatid: this.currentCat1}}).then(res => {
+        this.cate2List = res.data
+        setTimeout(function () {
+          $('.cate2-slider').slick({dots: true, autoplay: true})
+        })
       })
+    },
+    beforeDestroy () {
+      $('.cate2-slider').slick('unslick')
     },
     methods: {
       toDetail () {
         this.setState({lastState: 'hot'})
         this.$emit('cate2ToDetail')
       },
-      clickHandler () {
+      clickHandler (cate2Id) {
+        console.log(cate2Id)
+        this.setState({currentCat2: cate2Id})
         this.$emit('toCate3')
       }
     }

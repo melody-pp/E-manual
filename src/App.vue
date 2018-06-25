@@ -1,15 +1,16 @@
 <template>
   <div id="app" ref="$app">
     <img class="appLogo" src="./asset/appLogo.png" v-show="(showIndex||showProduct)&&!showWelcome">
+
     <div ref="$index" v-if="showIndex" class="container index-container">
-      <Index @pullToProduct="toProduct"/>
+      <Index @toProduct="toProduct"/>
     </div>
 
     <div ref="$product" v-if="showProduct" class="container product-container">
       <Product/>
     </div>
 
-    <SideMenu @clickToProduct="toProduct"/>
+    <SideMenu @toProduct="toProduct"/>
     <SearchBar @showSearchBar="showSearchBar"/>
 
     <div ref="$welcome" v-if="showWelcome" class="container welcome-container" @click="hideWelcome">

@@ -1,6 +1,6 @@
 <template>
   <div class="product">
-    <LevelMenu/>
+    <LevelMenu @changeCat1="changeCat1"/>
     <Cate2 v-if="showCate2" @toCate3="toCate3" @cate2ToDetail="toDetail"/>
     <Cate3 v-if="showCate3" @toDetail="toDetail"/>
     <Detail v-if="showDetail" @goBack="goBack"/>
@@ -20,11 +20,20 @@
     mixins: [vuexMixin],
     components: {LevelMenu, Cate2, Cate3, Detail},
     data: () => ({
-      showDetail: false,
       showCate2: true,
       showCate3: false,
+      showDetail: false,
     }),
     methods: {
+      changeCat1 () {
+        this.showCate2 = false
+        this.showCate3 = false
+        this.showDetail = false
+
+        this.$nextTick(() => {
+          this.showCate2 = true
+        })
+      },
       toDetail () {
         this.bus.$emit('hideCate')
         this.showCate2 = false

@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const http = axios.create({
-  baseURL: '/vue-base',
+  baseURL: '/',
 })
 http.interceptors.response.use(
   response => response,

@@ -1,10 +1,12 @@
 <template>
   <div class="cate3Box" :style="{'margin-left': 4*cateMargin+'px','margin-right': 3*cateMargin+'px'}" @click="toDetail">
     <img src="../../asset/cate3/bg.png" class="bgPic">
-    <Card v-for="(cate3,index) in cate3List" :key="index"
-          v-bind="cate3" :size="cateSize"
+    <Card v-for="cate3 in cate3List"
+          v-bind="cate3"
+          :key="cate3.id"
+          :size="cateSize"
           :style="{'margin-right': cateMargin+'px'}"
-          @click="toDetail"
+          @click="toDetail(cate3.id)"
     />
   </div>
 </template>
@@ -21,63 +23,34 @@
       cateSize: 0.3 * window.innerWidth,
       cateMargin: window.innerWidth * 0.01,
       cate3List: [
-        {
-          textImg: require('../../asset/cate3/01.png'),
-          itemImg: require('../../asset/cate3/10.png'),
-          bgc: 'rgb(209,192,165)'
-        },
-        {
-          textImg: require('../../asset/cate3/02.png'),
-          itemImg: require('../../asset/cate3/11.png'),
-          bgc: 'rgb(166,147,124)'
-        },
-        {
-          textImg: '',
-          itemImg: '',
-          bgc: 'rgb(126,107,90)'
-        }, {
-          textImg: require('../../asset/cate3/03.png'),
-          itemImg: require('../../asset/cate3/12.png'),
-          bgc: 'rgb(74,58,33)'
-        }, {
-          textImg: require('../../asset/cate3/04.png'),
-          itemImg: require('../../asset/cate3/13.png'),
-          bgc: 'rgb(54,46,43)'
-        }, {
-          textImg: require('../../asset/cate3/05.png'),
-          itemImg: require('../../asset/cate3/14.png'),
-          bgc: 'rgb(207,169,114)'
-        }, {
-          textImg: '',
-          itemImg: '',
-          bgc: 'rgb(178,136,80)'
-        }, {
-          textImg: require('../../asset/cate3/06.png'),
-          itemImg: require('../../asset/cate3/15.png'),
-          bgc: 'rgb(153,108,51)'
-        }, {
-          textImg: require('../../asset/cate3/07.png'),
-          itemImg: require('../../asset/cate3/16.png'),
-          bgc: 'rgb(129,81,28)'
-        }, {
-          textImg: require('../../asset/cate3/08.png'),
-          itemImg: require('../../asset/cate3/17.png'),
-          bgc: 'rgb(166,147,124)'
-        }, {
-          textImg: require('../../asset/cate3/09.png'),
-          itemImg: require('../../asset/cate3/18.png'),
-          bgc: 'rgb(207,169,114)'
-        }, {
-          textImg: '',
-          itemImg: '',
-          bgc: 'rgb(209,192,165)'
-        },
+        {bgc: 'rgb(209,192,165)'},
+        {bgc: 'rgb(166,147,124)'},
+        {empty: true, bgc: 'rgb(126,107,90)'},
+        {bgc: 'rgb(74,58,33)'},
+        {bgc: 'rgb(54,46,43)'},
+        {bgc: 'rgb(207,169,114)'},
+        {empty: true, bgc: 'rgb(178,136,80)'},
+        {bgc: 'rgb(153,108,51)'},
+        {bgc: 'rgb(129,81,28)'},
+        {bgc: 'rgb(166,147,124)'},
+        {bgc: 'rgb(207,169,114)'},
+        {empty: true, bgc: 'rgb(209,192,165)'},
       ]
     }),
+    mounted () {
+      this.axios.get('/yingfei/index.php/index/index/threecategory', {params: {tcatid: this.currentCat2}}).then(res => {
+        let index = 0
+        this.cate3List.forEach(cate3 => {
+          if (!cate3.empty) {
+            Object.assign(cate3, res.data[index++])
+          }
+        })
+      })
+    },
     methods: {
-      toDetail (cate3) {
-        this.setState({lastState: 'cate3'})
-        this.$emit('toDetail', cate3)
+      toDetail (cate3Id) {
+        this.setState({lastState: 'cate3', currentCat3: cate3Id})
+        this.$emit('toDetail')
       }
     }
   }

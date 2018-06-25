@@ -8,32 +8,24 @@
       <div class="cate menuIcon" @click="hideCate">
         <img src="../../asset/index/menuIcon.png">
       </div>
-      <div class="cate" v-for="cat in cat1List" @click="toProduct">
-        <img :src="cat.textImg">
+      <div class="cate" v-for="cat in cate1List" @click="toProduct(cat.id)">
+        <img :src="cat.thumbh">
       </div>
     </div>
   </div>
 </template>
 
 <script>
+  import { vuexMixin } from '../mixins'
   import { TweenMax } from 'gsap'
 
   export default {
     name: 'SideMenu',
+    mixins: [vuexMixin],
     data: () => ({
       cateVisible: false,
-      cat1List: [
-        {textImg: require('../../asset/index/slide01.png')},
-        {textImg: require('../../asset/index/slide02.png')},
-        {textImg: require('../../asset/index/slide03.png')},
-        {textImg: require('../../asset/index/slide04.png')},
-        {textImg: require('../../asset/index/slide05.png')},
-        {textImg: require('../../asset/index/slide06.png')},
-        {textImg: require('../../asset/index/slide07.png')},
-        {textImg: require('../../asset/index/slide08.png')},
-      ]
     }),
-    mounted(){
+    mounted () {
       this.bus.$on('hideCate', this.hideCate.bind(this))
     },
     methods: {
@@ -48,9 +40,11 @@
           TweenMax.set(document.querySelector('.side-menu-list'), {x: -999})
         })
       },
-      toProduct () {
+      toProduct (cat1Id) {
+        this.setState({currentCat1: cat1Id})
+
         this.hideCate()
-        this.$emit('clickToProduct')
+        this.$emit('toProduct')
       }
     }
   }

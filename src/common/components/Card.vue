@@ -14,7 +14,7 @@
         height: `${size}px`,
         transform: `translateX(-${size/2}px) rotateY(90deg) rotateZ(180deg) rotateX(180deg)`
       }">
-        <img :src="itemImg">
+        <img :src="backthumb">
       </div>
 
       <div class="front" :style="{
@@ -23,7 +23,7 @@
         height: `${size}px`,
         transform: `translateZ(${size/2}px)`
       }">
-        <img :src="textImg">
+        <img :src="thumb">
       </div>
     </div>
   </div>
@@ -34,8 +34,8 @@
     name: 'Card',
     props: {
       bgc: String,
-      textImg: String,
-      itemImg: String,
+      thumb: String,
+      backthumb: String,
       size: {
         default: 300
       },

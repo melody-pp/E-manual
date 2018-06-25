@@ -1,8 +1,8 @@
 <template>
   <div class="levelMenu clearfix">
     <div class="level-menu-slider">
-      <div class="cate" v-for="cat in cat1List" :style="{background: cat.bgc}">
-        <img :src="cat.textImg">
+      <div class="cate" v-for="cat in cate1List" :style="{background: cat.bgc}">
+        <img :src="cat.thumbt">
       </div>
     </div>
   </div>
@@ -10,27 +10,23 @@
 
 <script>
   import $ from 'jquery'
+  import { vuexMixin } from '../mixins'
 
   export default {
     name: 'LevelMenu',
-    data: () => ({
-      cat1List: [
-        {textImg: require('../../asset/levelMenu/01.png'), bgc: 'rgb(209,192,165)'},
-        {textImg: require('../../asset/levelMenu/02.png'), bgc: 'rgb(166,147,124)'},
-        {textImg: require('../../asset/levelMenu/03.png'), bgc: 'rgb(126,107,90)'},
-        {textImg: require('../../asset/levelMenu/04.png'), bgc: 'rgb(74,58,33)'},
-        {textImg: require('../../asset/levelMenu/05.png'), bgc: 'rgb(54,46,43)'},
-        {textImg: require('../../asset/levelMenu/06.png'), bgc: 'rgb(207,169,114)'},
-        {textImg: require('../../asset/levelMenu/07.png'), bgc: 'rgb(178,136,80)'},
-        {textImg: require('../../asset/levelMenu/08.png'), bgc: 'rgb(153,108,51)'},
-      ]
-    }),
+    mixins: [vuexMixin],
     mounted () {
       $('.level-menu-slider').slick({
         centerMode: true,
         slidesToShow: 3,
-      })
+      }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
+        this.setState({currentCat1: this.cate1List[nextSlide].id})
+        this.$emit('changeCat1')
+      }).slick('slickGoTo', this.currentCat1Index)
     },
+    beforeDestroy () {
+      $('.level-menu-slider').slick('unslick')
+    }
   }
 </script>
 

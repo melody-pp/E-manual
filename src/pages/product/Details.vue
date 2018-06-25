@@ -42,17 +42,14 @@
     },
     methods: {
       goBack () {
-        console.log('goback detail')
         this.$emit('goBack')
-
       }
     },
     mounted () {
-      $('.location-slider').slick({
-        // dots: true,
-        fade: true,
-        autoplay: false,
-      })
+      $('.location-slider').slick({fade: true, autoplay: false,})
+    },
+    beforeDestroy () {
+      $('.location-slider').slick('unslick')
     },
   }
 </script>
