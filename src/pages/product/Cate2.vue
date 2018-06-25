@@ -41,7 +41,7 @@
     methods: {
       toDetail (cate3Id) {
         this.setState({lastState: 'hot', currentCat3: cate3Id})
-        this.$emit('cate2ToDetail')
+        this.$emit('toDetail')
       },
       clickHandler (cate2Id) {
         this.setState({currentCat2: cate2Id})

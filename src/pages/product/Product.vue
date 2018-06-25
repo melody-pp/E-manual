@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <LevelMenu @changeCat1="changeCat1"/>
-    <Cate2 v-if="showCate2" @toCate3="toCate3" @cate2ToDetail="toDetail"/>
+    <Cate2 v-if="showCate2" @toCate3="toCate3" @toDetail="toDetail"/>
     <Cate3 v-if="showCate3" @toDetail="toDetail"/>
     <Detail v-if="showDetail" @goBack="goBack"/>
   </div>

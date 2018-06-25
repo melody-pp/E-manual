@@ -16,13 +16,13 @@
     name: 'LevelMenu',
     mixins: [vuexMixin],
     mounted () {
-      $('.level-menu-slider').slick({
-        centerMode: true,
-        slidesToShow: 3,
-      }).on('beforeChange', (event, slick, currentSlide, nextSlide) => {
-        this.setState({currentCat1: this.cate1List[nextSlide].id})
-        this.$emit('changeCat1')
-      }).slick('slickGoTo', this.currentCat1Index)
+      $('.level-menu-slider')
+        .slick({centerMode: true, slidesToShow: 3})
+        .slick('slickGoTo', this.currentCat1Index)
+        .on('afterChange', (event, slick, currentSlide) => {
+          this.setState({currentCat1: this.cate1List[currentSlide].id})
+          this.$emit('changeCat1')
+        })
     },
     beforeDestroy () {
       $('.level-menu-slider').slick('unslick')
