@@ -1,25 +1,28 @@
 <template>
   <div class="details">
-    <img src="../../asset/sportsDetail/01.png" class="title">
+    <img :src="detail.titlethumb" class="title">
+
     <div class="product1Box">
-      <img src="../../asset/sportsDetail/02.png" class="product1">
+      <img :src="detail.contentthumb1" class="product1">
       <div class="product1Txt">
-        <img src="../../asset/sportsDetail/02-1.png">
+        <img :src="detail.content1">
       </div>
     </div>
+
     <div class="product2Box">
-      <img src="../../asset/sportsDetail/03.png" class="product2">
+      <img :src="detail.contentthumb2" class="product2">
       <div class="product2Txt">
-        <img src="../../asset/sportsDetail/03-1.png">
+        <img :src="detail.content2">
       </div>
     </div>
+
     <div class="functionBar clearfix">
       <img src="../../asset/tasteDetail/collectIcon.png" class="collectIcon">
       <img src="../../asset/tasteDetail/locationIcon.png" @click="toLocation=!toLocation" class="locationIcon">
       <img src="../../asset/tasteDetail/shareIcon.png" class="shareIcon">
       <img src="../../asset/tasteDetail/goBackIcon.png" @click="goBack" class="goBackIcon">
-
     </div>
+
     <div @click="toLocation=!toLocation" v-show="toLocation" class="model">
       <div class="location-slider">
         <div class="location-slide"><img class="center" src="../../asset/map/001.png"></div>
@@ -35,18 +38,23 @@
 
   export default {
     name: 'Details',
-    data () {
-      return {
-        toLocation: false
-      }
-    },
+    data: () => ({
+      detail: {},
+      toLocation: false
+    }),
     methods: {
       goBack () {
         this.$emit('goBack')
       }
     },
     mounted () {
-      $('.location-slider').slick({fade: true, autoplay: false,})
+      this.axios.get('/yingfei/index.php/index/index/content', {params: {scatid: this.currentCat3}}).then(res => {
+        this.detail = res.data
+      })
+
+      setTimeout(function () {
+        $('.location-slider').slick({fade: true, autoplay: false,})
+      })
     },
     beforeDestroy () {
       $('.location-slider').slick('unslick')

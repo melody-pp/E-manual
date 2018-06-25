@@ -50,7 +50,6 @@
       goBack () {
         this.bus.$emit('hideCate')
         if (this.lastState === 'cate3') {
-
           this.toCate3()
         }
 

@@ -39,12 +39,11 @@
       $('.cate2-slider').slick('unslick')
     },
     methods: {
-      toDetail () {
-        this.setState({lastState: 'hot'})
+      toDetail (cate3Id) {
+        this.setState({lastState: 'hot', currentCat3: cate3Id})
         this.$emit('cate2ToDetail')
       },
       clickHandler (cate2Id) {
-        console.log(cate2Id)
         this.setState({currentCat2: cate2Id})
         this.$emit('toCate3')
       }
