@@ -1,6 +1,6 @@
 <template>
   <div id="app" ref="$app">
-    <img class="appLogo" src="./asset/appLogo.png" v-show="(showIndex||showProduct)&&!showWelcome">
+    <img class="appLogo" src="./asset/appLogo.png" v-show="(showIndex||showProduct)&&!showWelcome" @click="showWelcome">
 
     <div ref="$index" v-if="showIndex" class="container index-container">
       <Index @toProduct="toProduct"/>
@@ -55,6 +55,11 @@
           height: '1px',
           'border-bottom-right-radius': '1px',
         })
+      },
+      showWelcome () {
+        this.showWelcome = true
+        this.showIndex = false
+        this.showProduct = false
       },
       toProduct () {
         this.bus.$emit('hideCate')
