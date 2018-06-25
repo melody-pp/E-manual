@@ -87,7 +87,7 @@
           })
         } else {
           this.setState({currentCat1: this.cate1List[index].id})
-          this.$emit('toProduct', index)
+          this.$emit('toProduct')
           this.changeCateOpacity(0)
           TweenLite.to(this.movingCate, 1, {
             top: -window.innerWidth * 0.784 + 'px',
