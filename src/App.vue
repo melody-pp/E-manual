@@ -1,6 +1,6 @@
 <template>
   <div id="app" ref="$app">
-    <img class="logo" src="./asset/welcome/logo.png" v-show="(showIndex||showProduct)&&!showWelcome">
+    <img class="appLogo" src="./asset/appLogo.png" v-show="(showIndex||showProduct)&&!showWelcome">
     <div ref="$index" v-if="showIndex" class="container index-container">
       <Index @pullToProduct="toProduct"/>
     </div>
@@ -192,11 +192,13 @@
     margin: 0;
   }
 
-  .logo {
-    width: 15vw;
+  .appLogo {
+    width: 11vw;
     position: absolute;
-    top: 0;
+    top: 2vw;
     left: 50%;
+    -webkit-transform: translateX(-50%);
     transform: translateX(-50%);
+    z-index: 100;
   }
 </style>
