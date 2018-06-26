@@ -70,7 +70,7 @@
   .details {
     text-align: center;
     .title {
-      width: 52vw;
+      width: 68vw;
       margin: 6vw 0;
     }
     .product1Box, .product2Box {
