@@ -12,7 +12,7 @@
            @touchstart="touchstart"
            @touchend="touchend(index)"
            @touchmove="touchmove($event, index)"
-           :style="{background: cat.bgc,top: index * cateHeight + 'px'}">
+           :style="{background: cat.bgc,top: index * cateHeight/7 + 'vh'}">
         <img :src="cat.thumbw">
       </div>
     </div>
@@ -122,11 +122,11 @@
     width: 100vw;
     height: 100vh;
     position: absolute;
-    padding-top: 3vw;
+    padding-top: 1.6vh;
     padding-left: 10vw;
     box-shadow: 10px 10px 13px rgba(0, 0, 0, 0.4);
     img {
-      height: 5vw;
+      height: 3.5vh;
     }
   }
 </style>

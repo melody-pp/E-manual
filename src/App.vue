@@ -172,30 +172,30 @@
   }
 
   .slick-list {
-    overflow: visible;
+    overflow: visible !important;
   }
 
   .slick-dotted.slick-slider {
-    font-size: 0;
-    margin-bottom: 0;
+    font-size: 0 !important;
+    margin-bottom: 0 !important;
   }
 
   .slick-dots {
-    bottom: 15px;
+    bottom: 2vh !important;
   }
 
   .slick-dots li button:before {
-    opacity: 1;
-    color: #dcdcdc;
+    opacity: 1 !important;
+    color: #dcdcdc !important;
   }
 
   .slick-dots li.slick-active button:before {
-    opacity: 1;
-    color: #7d1820;
+    opacity: 1 !important;
+    color: #7d1820 !important;
   }
 
   .slick-dots li {
-    margin: 0;
+    margin: 0 !important;
   }
 
   .appLogo {
