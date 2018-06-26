@@ -1,5 +1,5 @@
 <template>
-  <div class="cate3Box" :style="{'margin-left': 4*cateMargin+'px','margin-right': 3*cateMargin+'px'}" @click="toDetail">
+  <div class="cate3Box" :style="{'margin-left': 4*cateMargin+'px','margin-right': 3*cateMargin+'px'}">
     <img src="../../asset/cate3/bg.png" class="bgPic">
     <Card v-if="showCard"
           v-for="cate3 in cate3List"
@@ -52,7 +52,6 @@
     },
     methods: {
       toDetail (cate3Id) {
-        console.log(cate3Id)
         this.setState({lastState: 'cate3', currentCat3: cate3Id})
         this.$emit('toDetail')
       }
