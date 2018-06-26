@@ -1,7 +1,7 @@
 <template>
   <div class="cate2">
     <div class="cate2-slider" :style="{margin: `${sliderMg}px 0`}">
-      <div v-for="(item, index) in hotList" :key="index" @click="toDetail(item.scatid)">
+      <div v-for="(item, index) in hotList" :key="index" @click="toDetail(hotList.scatid)">
         <img :src="item.sowing">
       </div>
     </div>
