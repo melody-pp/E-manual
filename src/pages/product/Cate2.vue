@@ -1,7 +1,7 @@
 <template>
   <div class="cate2">
     <div class="cate2-slider" :style="{margin: `${sliderMg}px 0`}">
-      <div v-for="item in hotList" :key="item.scatid" @click="toDetail(item.scatid)">
+      <div v-for="(item, index) in hotList" :key="index" @click="toDetail(item.scatid)">
         <img :src="item.sowing">
       </div>
     </div>
@@ -24,12 +24,10 @@
     name: 'Cate2',
     mixins: [vuexMixin],
     data: () => ({
-      hotList: [],
       cate2List: [],
       sliderMg: (window.innerHeight - (window.innerWidth * 16 / 9)) / 4
     }),
     mounted () {
-      this.hotList = this.cate1List
       this.axios.get('/yingfei/index.php/index/index/twocategory', {params: {ocatid: this.currentCat1}}).then(res => {
         this.cate2List = res.data
         setTimeout(function () {
