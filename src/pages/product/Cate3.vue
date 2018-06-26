@@ -1,7 +1,8 @@
 <template>
   <div class="cate3Box" :style="{'margin-left': 4*cateMargin+'px','margin-right': 3*cateMargin+'px'}" @click="toDetail">
     <img src="../../asset/cate3/bg.png" class="bgPic">
-    <Card v-for="cate3 in cate3List"
+    <Card v-if="showCard"
+          v-for="cate3 in cate3List"
           v-bind="cate3"
           :key="cate3.id"
           :size="cateSize"
@@ -20,6 +21,7 @@
     mixins: [vuexMixin],
     components: {Card},
     data: () => ({
+      showCard: false,
       cateSize: 0.3 * window.innerWidth,
       cateMargin: window.innerWidth * 0.01,
       cate3List: [
@@ -38,13 +40,14 @@
       ]
     }),
     mounted () {
-      this.axios.get('/yingfei/index.php/index/index/threecategory', {params: {tcatid: this.currentCat2}}).then(res => {
+      this.axios.get('/yingfei/index.php/index/index/threecategory', {params: {tcatid: 13}}).then(res => {
         let index = 0
         this.cate3List.forEach(cate3 => {
           if (!cate3.empty) {
             Object.assign(cate3, res.data[index++])
           }
         })
+        this.showCard = true
       })
     },
     methods: {

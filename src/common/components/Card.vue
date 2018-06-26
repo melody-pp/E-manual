@@ -49,7 +49,7 @@
         this.lastX = event.changedTouches[0].clientX
       },
       touchend () {
-        if (!this.itemImg) {
+        if (!this.backthumb) {
           return
         }
         const clientX = event.changedTouches[0].clientX
