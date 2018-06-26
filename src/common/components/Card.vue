@@ -1,8 +1,7 @@
 <template>
-  <div class="cube-container" :style="{
-    width: `${size}px`,
-    height: `${size}px`,
-  }">
+  <div class="cube-container"
+       @click="clickHandler"
+       :style="{width: `${size}px`,height: `${size}px`}">
     <div class="cube" :style="{
         width: `${size}px`,
         height: `${size}px`,
@@ -45,6 +44,9 @@
       rotateY: 0,
     }),
     methods: {
+      clickHandler () {
+        this.$emit('toDetail')
+      },
       touchstart (event) {
         this.lastX = event.changedTouches[0].clientX
       },

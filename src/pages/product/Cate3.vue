@@ -7,7 +7,7 @@
           :key="cate3.id"
           :size="cateSize"
           :style="{'margin-right': cateMargin+'px'}"
-          @click="toDetail(cate3.id)"
+          @toDetail="toDetail(cate3.id)"
     />
   </div>
 </template>
