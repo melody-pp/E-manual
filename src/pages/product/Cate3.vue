@@ -40,7 +40,7 @@
       ]
     }),
     mounted () {
-      this.axios.get('/yingfei/index.php/index/index/threecategory', {params: {tcatid: 13}}).then(res => {
+      this.axios.get('/yingfei/index.php/index/index/threecategory', {params: {tcatid: this.currentCat2}}).then(res => {
         let index = 0
         this.cate3List.forEach(cate3 => {
           if (!cate3.empty) {
@@ -52,6 +52,7 @@
     },
     methods: {
       toDetail (cate3Id) {
+        console.log(cate3Id)
         this.setState({lastState: 'cate3', currentCat3: cate3Id})
         this.$emit('toDetail')
       }

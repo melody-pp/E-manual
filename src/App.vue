@@ -57,7 +57,6 @@
         })
       },
       toWelcome () {
-        console.log('showWelcome')
         this.showWelcome = true
         this.showIndex = true
         this.showProduct = false
