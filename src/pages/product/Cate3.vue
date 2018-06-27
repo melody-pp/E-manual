@@ -52,7 +52,6 @@
     },
     methods: {
       toDetail (cate3Id) {
-        console.log(cate3Id)
         this.setState({lastState: 'cate3', currentCat3: cate3Id})
         this.$emit('toDetail')
       }

@@ -2,7 +2,7 @@
   <div class="cate2">
     <div class="cate2-slider" :style="{margin: `${sliderMg}px 0`}">
       <div v-for="(item, index) in hotList" :key="index" @click="toDetail(hotList.scatid)">
-        <img :src="item.p_sowing">
+        <img :src="item.sowing">
       </div>
     </div>
 
@@ -67,27 +67,27 @@
     }
     .free01 {
       width: 46vw;
-      height: 43.188vw;
+      height: 24.3vh;
     }
     .free02 {
       width: 27vw;
-      height: 21.5984vw;
+      height: 12.15vh;
     }
     .free03 {
       width: 27vw;
-      height: 21.5984vw;
+      height: 12.15vh;
     }
     .free04 {
       width: 54vw;
-      height: 21.5984vw;
+      height: 12.15vh;
     }
     .free05 {
       width: 59vw;
-      height: 33.62vw;
+      height: 19vh;
     }
     .free06 {
       width: 41vw;
-      height: 33.62vw;
+      height: 19vh;
     }
   }
 </style>

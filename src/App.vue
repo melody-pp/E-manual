@@ -123,6 +123,10 @@
     list-style: none;
   }
 
+  img {
+    user-select: none;
+  }
+
   .container {
     overflow: hidden;
     position: absolute;
