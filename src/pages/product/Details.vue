@@ -53,7 +53,6 @@
       this.axios.get('/yingfei/index.php/index/index/content', {params: {scatid: this.currentCat3}}).then(res => {
 
         this.detail = res.data[0]
-        console.log(this.detail)
       })
 
       setTimeout(function () {

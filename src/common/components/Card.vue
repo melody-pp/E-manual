@@ -68,7 +68,7 @@
 
 <style scoped lang="scss">
   .cube-container {
-    perspective: 800px;
+    perspective: 1000px;
     position: relative;
     display: inline-block;
   }
